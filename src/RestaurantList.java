@@ -8,7 +8,8 @@ public class RestaurantList extends Details{
 		super();
 		Restaurant[] res = new Restaurant[1002];
 		for(int i = 0; i<1002; i++) {
-			res[i] = new Restaurant(names[i], address[i], city[i], type[i], rating[i], timing[i], review[i], menus[i], tables[i]);
+			res[i] = new Restaurant(names[i], address[i], city[i], type[i], rating[i], timing[i], review[i], menus[i]);
+			
 		}
 		restaurants = res;
 	}
@@ -42,12 +43,12 @@ public class RestaurantList extends Details{
 			if(this.restaurants[i].name.equals(s))
 				return this.restaurants[i];
 		}
-		return new Restaurant("Not Found", null, null, null, 0, null, null, null, null);
+		return new Restaurant("Not Found", null, null, null, 0, null, null, null);
 	}
 	
 	public String byName(String s) {
 		for(int i = 0; i<1002; i++) {
-			if(this.restaurants[i].name.equals(s))
+			if(this.restaurants[i].name.equalsIgnoreCase(s))
 				return this.restaurants[i].toString();
 		}
 		return "Not Found";
@@ -106,13 +107,15 @@ public class RestaurantList extends Details{
 	}
 	
 	public static void main(String[] args) {
-		RestaurantList res = new RestaurantList();
+		//RestaurantList res = new RestaurantList();
 		//Restaurant[] restaurants = res.searchByType();
 		//printRes(restaurants);
-		res.searchByName("The Dapper Palace").menu.displayMenu();
+		//res.searchByName("The Dapper Palace").menu.displayMenu();
 		//StdOut.println(res.searchByName("Blabla"));
 		//StdOut.println(res.byRating(3)[0]);
 		//printRes(res.byLocaion(123456));
+		//String s = res.byName("Souls");
+		//System.out.println(s);
 	}
 
 }

@@ -1,4 +1,3 @@
-
 public class Details {
 	
 	String[] names = new String[1002];
@@ -9,7 +8,6 @@ public class Details {
 	String[] timing = new String[1002];
 	String[] review = new String[1002];
 	Menu[] menus = new Menu[1002];
-	Table[][] tables = new Table[1002][4];
 	
 	private String randomType() {
 		String[] typeString = {"Punjabi","Italian","Fastfood","South Indian"};
@@ -44,16 +42,6 @@ public class Details {
 		return resMenus;
 	}
 	
-	private Table[][] tableInisilization() {
-		for(int i = 0; i<1002; i++) {
-			for(int j = 0; j<4; j++) {
-				this.tables[i][j] = new Table();
-			}
-		}
-		
-		return this.tables;
-	}
-	
 	public Details() {
 		names = ReadFile.readStrings("names.txt");
 		address = ReadFile.readAdd("addresses.txt");
@@ -63,7 +51,6 @@ public class Details {
 		review = ReadFile.readStrings("review.txt");
 		type = typeReturn();
 		menus = returnMenu();
-		tables = tableInisilization();
 	}
 	
 	public static void main(String[] args) {
